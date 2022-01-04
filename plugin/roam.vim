@@ -51,8 +51,9 @@ command! RoamUpdateBacklinkBuffer call roam#graph#update_backlink_buffer()
 
 
 " RoamFzfFiles - search wiki filenames and go to file
-command! -bang -complete=dir RoamFzfFiles
-    \ call fzf#vim#files(g:wiki_root, fzf#vim#with_preview({'right':'50%'}, 'down:50%:wrap'), <bang>0)
+command! -bang -nargs=? -complete=dir RoamFzfFiles
+    \ call fzf#vim#files(g:wiki_root, fzf#vim#with_preview(
+    \ {'right':'50%'}, 'down:50%:wrap'), <bang>0)
 
 " RoamFzfLines - search lines in all wiki files and go to file. Following FZF
 " session has a prefilled query using the first argument, which is a
